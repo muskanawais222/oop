@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project1
+namespace project2
 {
     class Program
     {
@@ -13,101 +13,136 @@ namespace project1
             //  task01();
             // task02();
             // task03();
-          // task04();
-           // task05();
-          //  task06();
-           // task07();
-           // task08();
-           // task09();
-            task10();
+            //  task04();
+            // task05();
+            task06();
+
         }
         static void task01()
         {
-            for (int i = 0; i < 2; i++)
+            string input;
+            float marks;
+            Console.Write("Enter the Marks: ");
+            input = Console.ReadLine();
+            marks = float.Parse(input);
+            if (marks>50)
             {
-                Console.Write("Hello World!");
+                Console.WriteLine("You are passed");
+            }
+            else
+            {
+                Console.WriteLine("You are failed");
             }
             Console.Read();
         }
         static void task02()
         {
-            for (int i = 0; i < 2; i++)
+            for(int i =0; i<5; i++)
             {
-                Console.WriteLine("Hello World!");
+                Console.WriteLine("Welcome Jack!");
             }
             Console.Read();
         }
         static void task03()
         {
-            int variable = 5;
-            Console.WriteLine("The valus is: " );
-            Console.Write(variable);
-                Console.ReadKey();
+            int num;
+            int sum = 0;
+            Console.Write("Enter Number: ");
+            num = int.Parse(Console.ReadLine());
+            while (num != -1)
+            {
+                sum = sum + num;
+                Console.Write("Enter Number: ");
+                num = int.Parse(Console.ReadLine());
+            }
+
+             Console.WriteLine("The total Sum is {0}" , sum);
+            Console.Read();
         }
         static void task04()
         {
-            string variable = "I am string";
-            Console.WriteLine("The string is: ");
-            Console.Write(variable);
-            Console.ReadKey();
+            int num;
+            int sum = 0;
+            do
+            {
+                Console.Write("Enter Number: ");
+                num = int.Parse(Console.ReadLine());
+                sum = sum + num;
+
+            }
+            while (num != -1);
+                sum = sum + 1;
+            Console.WriteLine("The total Sum is {0}", sum);
+            Console.Read();
         }
         static void task05()
-        {
-            char variable = 'A';
-            Console.WriteLine("Char: ");
-            Console.Write(variable);
-            Console.ReadKey();
+        {//taking input
+            int[] numbers = new int[3];
+                for (int idx = 0; idx<3;idx++)
+            {
+                Console.WriteLine("Enter the {0} number : ", idx);
+                numbers[idx] = int.Parse(Console.ReadLine());
+            }
+            // finding the latrgest
+            int largest = -1;
+            for (int idx = 0; idx < 3; idx++)
+            {
+                if(numbers[idx]> largest)
+                {
+                    largest = numbers[idx];
+                }
+            }
+            Console.WriteLine("Largest is {0}", largest);
+            Console.Read();
         }
+        // take away task
         static void task06()
         {
-            float variable = 2.2F;
-            Console.WriteLine("The Float is: ");
-            Console.Write(variable);
-            Console.ReadKey();
-        }
-        static void task07()
-        {
-            string str;
-            str = Console.ReadLine();
-            Console.WriteLine("You are inputted: ");
-            Console.WriteLine(str);
-            Console.ReadKey();
-        }
-        static void task08()
-        {
-            string str;
-            str = Console.ReadLine();
-            Console.WriteLine("You are inputted: ");
-            int num = int.Parse(str);
-            Console.WriteLine("The number is: ");
-            Console.Write(num);
-            Console.ReadKey();
-        }
-        static void task09()
-        {
-            string str;
-           
-            Console.WriteLine("Enter floating point value ");
-            str = Console.ReadLine();
-            float num = float.Parse(str);
-            Console.WriteLine("The number is: ");
-            Console.Write(num);
-            Console.ReadKey();
-        }
-        static void task10()
-        {
-            float length;
-            float area;
-            string str;
+            int age;
+            float machine_price;
+            float toy_price;
+            float brdyMoney = 0.0F;
+            int brdyCount = 1;
+            float totalMoney = 0.0F;
+            float collectedMoney;
+            Console.WriteLine("Enter the age of Lily: ");
+           age = int.Parse( Console.ReadLine());
+            Console.WriteLine("Enter the price of Macine: ");
+            machine_price = float.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the Price of Toy: ");
+           toy_price = float.Parse( Console.ReadLine());
+            for(int x=1; x<=age; x++)
+            {
+                if(x % 2 == 0)
+                {
+                    brdyMoney = (brdyMoney + (brdyCount * 10)-1);
+                    brdyCount++;
+                }
+                else
+                {
+                    totalMoney = totalMoney + toy_price;
+                }
+            }
+            collectedMoney = brdyMoney + totalMoney;
+            Console.WriteLine("total amount: " + (collectedMoney));
 
-            Console.WriteLine("Enter length: ");
-            str = Console.ReadLine();
-            length  = float.Parse(str);
-            area = length * length;
-            Console.WriteLine("The Area is: ");
-            Console.Write(area);
-            Console.ReadKey();
+            if (collectedMoney > machine_price)
+            {
+                Console.WriteLine("Yes! lily money's is enough to buy machine");
+                Console.WriteLine("Remaing amount is: " + (collectedMoney - machine_price));
+
+            }
+            else if(collectedMoney < machine_price)
+            {
+                Console.WriteLine("No! lily money's is insufficient to buy machine");
+                Console.WriteLine("Remaing amount is: " + ( machine_price - collectedMoney));
+            }
+
+            Console.Read();
+
         }
+
+
 
     }
 }
